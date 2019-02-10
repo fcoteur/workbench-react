@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import TodosApp from './TodosApp/TodoApps'
 import Bookmarks from './BookmarksApp/BookmarksApp'
+import WeatherApp from './WeatherApp/WeaterApp'
 
 class App extends Component {
   render() {
@@ -8,6 +9,7 @@ class App extends Component {
       <div>
         <Bookmarks />
         <TodosApp />
+        <WeatherApp />
       </div>
     );
   }

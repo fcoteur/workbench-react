@@ -14,7 +14,6 @@ export default class Bookmark extends Component {
       url: PropTypes.string
     }).isRequired,
     delete: PropTypes.func.isRequired,
-    toggle: PropTypes.func.isRequired,
     edit: PropTypes.func.isRequired,
   }
 
