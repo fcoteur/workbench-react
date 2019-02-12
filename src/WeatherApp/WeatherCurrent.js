@@ -3,11 +3,12 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types'
 import axios from 'axios';
 
-const Forecast = styled.div`
+const Current = styled.div`
   padding: 5px 5px;
-  text-align: center;
-  display: inline-block;
-  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 320px;
 `;
 
 export default class WeaterCurrent extends Component {
@@ -65,14 +66,14 @@ export default class WeaterCurrent extends Component {
 
     // select two forecasts per 24h and limit display to 4 days maximum
     if (data) {
-      const daysOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saterday", "Sunday"]
+      const daysOfWeek = ["Sunday","Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saterday"]
       const time = new Date(data.dt*1000);
       var currentWeather = (
-            <Forecast>
-              <span>{daysOfWeek[time.getDay()]}</span><br/>
-              <img src={"http://openweathermap.org/img/w/" + data.weather[0].icon +".png"} alt={data.weather[0].description} /><br/>
+            <Current>
+              <img src={"http://openweathermap.org/img/w/" + data.weather[0].icon +".png"} alt={data.weather[0].description} />
               <span>{Math.round(data.main.temp)}°</span>
-            </Forecast>
+              <span>... (today, at {time.toLocaleTimeString()})</span>
+            </Current>
           )
     } 
     

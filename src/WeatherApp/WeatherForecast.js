@@ -65,13 +65,13 @@ export default class WeaterForecast extends Component {
 
     // select two forecasts per 24h and limit display to 4 days maximum
     if (data) {
-      const daysOfWeek = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+      const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
       var forecastList = data.list.map((forecast,index) => {
         const time = new Date(forecast.dt*1000);
         if ((time.getHours() === 1 || time.getHours() === 13) && index < 32) {
           return (
             <Forecast>
-              <span>{daysOfWeek[time.getDay()]}</span><br/>
+              <span>{time.getHours()===1 ? '' : daysOfWeek[time.getDay()]}</span><br/>
               <img src={"http://openweathermap.org/img/w/" + forecast.weather[0].icon +".png"} alt={forecast.weather[0].description} /><br/>
               <span>{Math.round(forecast.main.temp)}°</span>
             </Forecast>

@@ -43,7 +43,7 @@ export default class WeatherForm extends Component {
               <select value={this.state.selection} onChange={this.handleChange}>
                 <option value="London,gb">London</option>
                 <option value="Brussels,be">Brussels</option>
-                <option value="Bilbao,es">Bilbao</option>
+                <option value="Bilbao,es" selected="selected">Bilbao</option >
                 <option value="Haarlem,nl">Haarlem</option>
               </select>
               <input type='submit' value={String.fromCharCode(0x21B5)} />
